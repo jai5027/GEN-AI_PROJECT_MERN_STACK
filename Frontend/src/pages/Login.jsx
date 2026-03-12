@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { use } from 'react'
 import '../features/auth/auth.form.scss'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
+
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,6 +28,7 @@ const Login = () => {
 
             <button className='button primary-button' type='submit'>Login</button> 
         </form>
+        <p>Don't have an account? <Link to='/register'>Register</Link></p>
     </div>
    </main>
   )
