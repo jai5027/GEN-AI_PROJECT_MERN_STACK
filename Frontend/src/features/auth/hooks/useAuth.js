@@ -1,5 +1,6 @@
 import { useIt } from '../auth.context.jsx'
 import { login, register, logout, getMe } from '../services/auth.api.js'
+import { useEffect } from 'react'
 
 export const useAuth = () => {
    const { user, setUser, loading, setLoading } = useIt()
@@ -39,6 +40,15 @@ export const useAuth = () => {
       setLoading(false)
       }
    }
+
+    useEffect(() => {
+             const getAndSetUser = async() => {
+               const data = await getMe()
+               setUser(data.user)
+               setLoading(false)
+             }
+             getAndSetUser()
+       }, [])
 
    return { user, loading, handleLogin, handleRegister, handleLogout }
 }

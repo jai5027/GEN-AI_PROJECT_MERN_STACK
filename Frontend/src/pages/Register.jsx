@@ -16,7 +16,8 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        handleRegister(data)
+        await handleRegister(data)
+        navigate('/home')
     }
 
     if(loading){
