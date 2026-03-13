@@ -85,9 +85,13 @@ const interviewReportSchema = new mongoose.Schema({
         max: 100
       },
       technicalQuestions : [ technicalQuestionsSchema ],
-      behavioralQuestion : [ behavioralQuestionSchema ],
+      behavioralQuestions : [ behavioralQuestionSchema ],
       skillGaps : [ skillGapSchema ],
-      preparationPlan : [ preparationPlanSchema ]
+      preparationPlan : [ preparationPlanSchema ],
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users"
+      }
 }, {
     timestamps : true
 })
