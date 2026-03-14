@@ -1,37 +1,26 @@
-import { createBrowserRouter } from "react-router-dom"
-import Login from './pages/Login.jsx'
-import Register from './pages/Register.jsx'
-import Home from './pages/Home.jsx'
-import App from './App.jsx' 
-import Protected from "./components/Protected.jsx"
-import Interview from "./pages/interview.jsx"
+import { createBrowserRouter } from "react-router";
+import Login from "./features/auth/pages/Login";
+import Register from "./features/auth/pages/Register";
+import Protected from "./features/auth/components/Protected";
+import Home from "./features/interview/pages/Home";
+import Interview from "./features/interview/pages/Interview";
 
-const router = createBrowserRouter([
-      {
-        path: '/',
-        element: <App />,
-        children: [
-      {
-        path: '/',
+
+export const router = createBrowserRouter([
+    {
+        path: "/login",
         element: <Login />
-      },
-      {
-        path: '/register',
+    },
+    {
+        path: "/register",
         element: <Register />
-      },
-      {
-        path: '/home',
-        element: <Protected> 
-             <Home />
-             </Protected>
-      },
-      {
-        path: '/interview/:interviewId',
-        element: <Protected> 
-             <Interview />
-             </Protected>
-      }
-      ]}
+    },
+    {
+        path: "/",
+        element: <Protected><Home /></Protected>
+    },
+    {
+        path:"/interview/:interviewId",
+        element: <Protected><Interview /></Protected>
+    }
 ])
-
-export default router

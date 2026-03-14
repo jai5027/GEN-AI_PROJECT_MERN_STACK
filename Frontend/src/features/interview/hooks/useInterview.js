@@ -1,12 +1,12 @@
-import { getAllInterviewReports, generateInterviewReport, getInterviewReportById, generateResumePdf } from "../services/auth.api.js"
-import { useEffect } from "react"
-import { useIt } from "../auth.context.jsx"
+import { getAllInterviewReports, generateInterviewReport, getInterviewReportById, generateResumePdf } from "../services/interview.api"
+import { useContext, useEffect } from "react"
+import { InterviewContext } from "../interview.context"
 import { useParams } from "react-router"
 
 
 export const useInterview = () => {
 
-    const context = useIt()
+    const context = useContext(InterviewContext)
     const { interviewId } = useParams()
 
     if (!context) {
