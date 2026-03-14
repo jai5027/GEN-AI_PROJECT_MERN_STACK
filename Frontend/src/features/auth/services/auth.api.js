@@ -24,7 +24,7 @@ export async function login({ email, password }){
         const response = await api.post('/api/auth/login', {
             email, password
         })
-
+ 
         return response.data
 
       } catch (error) {
@@ -44,8 +44,9 @@ export async function logout(){
 
 export async function getMe(){
     try {
-        const respones = await api.get('api/auth/get-me')
+        const respones = await api.get('/api/auth/get-me')
         return respones.data 
+        
     } catch (error) {
         console.log(error)
     }
